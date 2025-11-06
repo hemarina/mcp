@@ -27,7 +27,7 @@ function Get-NpmHelpText {
         [hashtable] $Server
     )
 
-    if($NpmRegistry -match 'https://pkgs.dev.azure.com/(?<org>.+?)/(?<project>.+?)/_packaging/(?<feed>.+?)/npm/registry/')
+    if ($NpmRegistry -match 'https://pkgs.dev.azure.com/(?<org>.+?)/(?<project>.+?)/_packaging/(?<feed>.+?)/npm/registry/')
     {
         $connectInstructions = "To connect to the feed, use the NPM connection instructions from:  `n" +
         "https://dev.azure.com/$($matches['org'])/$($matches['project'])/_artifacts/feed/$($matches['feed'])/connect`n`n"
