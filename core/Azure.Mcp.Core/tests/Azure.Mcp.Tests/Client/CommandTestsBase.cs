@@ -82,7 +82,6 @@ public abstract class CommandTestsBase(ITestOutputHelper output) : IAsyncLifetim
 
         var envVarDictionary = new Dictionary<string, string?> {
             // Propagate playback signaling & sanitized identifiers to server process.
-            { "AZURE_TOKEN_CREDENTIALS", TestMode is TestMode.Playback ? "PlaybackTokenCredential" : null },
             { "AZURE_TENANT_ID", Settings.TenantId },
             { "AZURE_SUBSCRIPTION_ID", Settings.SubscriptionId }
         };
@@ -90,6 +89,11 @@ public abstract class CommandTestsBase(ITestOutputHelper output) : IAsyncLifetim
         if (proxy != null && proxy.Proxy != null)
         {
             envVarDictionary.Add("TEST_PROXY_URL", proxy.Proxy.BaseUri);
+
+            if(TestMode is TestMode.Playback)
+            {
+                envVarDictionary.Add("AZURE_TOKEN_CREDENTIALS", "PlaybackTokenCredential");
+            }
         }
 
         StdioClientTransportOptions transportOptions = new()
