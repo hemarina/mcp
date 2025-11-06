@@ -9,7 +9,7 @@ $RepoRoot = $RepoRoot.Path.Replace('\', '/')
 $exitCode = 0
 
 
-if(!$BuildInfoPath) {
+if (!$BuildInfoPath) {
     $BuildInfoPath = "$RepoRoot/.work/build_info.json"
 }
 
