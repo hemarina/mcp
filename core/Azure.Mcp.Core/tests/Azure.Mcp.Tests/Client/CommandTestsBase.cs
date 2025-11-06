@@ -90,7 +90,7 @@ public abstract class CommandTestsBase(ITestOutputHelper output) : IAsyncLifetim
         {
             envVarDictionary.Add("TEST_PROXY_URL", proxy.Proxy.BaseUri);
 
-            if(TestMode is TestMode.Playback)
+            if (TestMode is TestMode.Playback)
             {
                 envVarDictionary.Add("AZURE_TOKEN_CREDENTIALS", "PlaybackTokenCredential");
             }
