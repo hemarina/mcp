@@ -41,7 +41,7 @@ jobs:
     displayName: 'Attach usage instructions to build summary'
     inputs:
       targetType: 'filePath'
-      filePath: 'eng\scripts\Get-PackageUsageText.ps1'
+      filePath: 'eng/scripts/Get-PackageUsageText.ps1'
       arguments: >
         -BuildInfoPath '$(Pipeline.Workspace)/build_info/build_info.json'
         -NpmRegistry '${{ parameters.NpmRegistry }}'
